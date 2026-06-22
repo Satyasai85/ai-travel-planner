@@ -1,0 +1,26 @@
+# Render Blueprint — deploys the Express API from the backend/ folder.
+# In Render: New + → Blueprint → connect this repo. Render reads this file.
+services:
+  - type: web
+    name: ai-travel-planner-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      # Render injects PORT automatically; the server reads process.env.PORT.
+      - key: JWT_SECRET
+        generateValue: true # Render generates a strong random secret
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      # The three below are secrets / environment-specific — set in the dashboard.
+      - key: MONGO_URI
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: CLIENT_URL
+        sync: false # set to your Vercel URL after the frontend is deployed
