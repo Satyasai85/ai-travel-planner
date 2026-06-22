@@ -6,6 +6,7 @@ function publicUser(user) {
   return { id: user._id, name: user.name, email: user.email };
 }
 
+
 /**
  * POST /api/auth/register
  * Creates a new account, hashes the password (handled in the model), returns a JWT.
