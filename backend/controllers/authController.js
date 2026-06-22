@@ -1,6 +1,9 @@
 const User = require('../models/User');
 const { signToken } = require('../utils/token');
 
+// Whitelist the fields exposed to the client. Building the response explicitly
+// (rather than returning the Mongoose document) guarantees the password hash and
+// internal fields can never leak, even if the schema changes later.
 /** Shape the user object returned to the client (never includes the hash). */
 function publicUser(user) {
   return { id: user._id, name: user.name, email: user.email };

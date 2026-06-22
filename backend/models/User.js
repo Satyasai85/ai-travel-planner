@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
+// User account: credentials only. Trips reference the user via `userId`, keeping
+// the auth model small and the ownership relationship explicit.
 const UserSchema = new mongoose.Schema(
   {
     name: {

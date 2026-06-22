@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+// A Trip is a self-contained document: itinerary days, hotels, budget, and the
+// packing list all live inline. This document shape maps naturally to how the
+// dashboard renders a trip, avoiding cross-collection joins.
+
 /* A single activity within a day. */
 const ActivitySchema = new mongoose.Schema({
   title: { type: String, required: true },

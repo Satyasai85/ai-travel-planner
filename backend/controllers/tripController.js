@@ -8,7 +8,10 @@ const { generateTripPlan, regenerateDay } = require('../services/geminiService')
  * valid id from another account is supplied — the query simply matches nothing.
  * ------------------------------------------------------------------------- */
 
-/** Recompute the budget total from its parts to keep it internally consistent. */
+/**
+ * Recompute the budget total from its parts to keep it internally consistent.
+ * Never trust the `total` sent by the model or client — always derive it here.
+ */
 function withConsistentTotal(budget = {}) {
   const flights = Number(budget.flights) || 0;
   const transport = Number(budget.transport) || 0;

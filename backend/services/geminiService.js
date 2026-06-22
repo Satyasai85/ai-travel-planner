@@ -6,6 +6,8 @@
  * ever changes, only this file needs to be touched.
  */
 
+// Model and endpoint are read from env so the provider/model can be swapped via
+// configuration alone — no code change required.
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 
