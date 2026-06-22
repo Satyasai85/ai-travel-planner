@@ -14,6 +14,7 @@ async function connectDB() {
 
   const conn = await mongoose.connect(uri, {
     // Mongoose 8 uses sensible defaults; these keep intent explicit.
+    // Fail fast (10s) instead of hanging when the cluster is unreachable.
     serverSelectionTimeoutMS: 10000,
   });
 

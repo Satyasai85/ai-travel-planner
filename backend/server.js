@@ -1,3 +1,5 @@
+// Application entry point: wires up middleware, routes, error handling, and the
+// database connection, then starts the HTTP server.
 require('dotenv').config();
 
 const express = require('express');

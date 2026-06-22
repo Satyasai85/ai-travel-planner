@@ -19,6 +19,7 @@ module.exports = function auth(req, res, next) {
       .json({ message: 'Access denied. Missing or malformed authorization token.' });
   }
 
+  // Format: "Authorization: Bearer <token>" — take the part after the space.
   const token = authHeader.split(' ')[1];
 
   try {
