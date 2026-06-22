@@ -16,9 +16,11 @@ import type {
   User,
 } from '@/types';
 
+// Strip any trailing slash so paths join cleanly; fall back to localhost in dev.
 const BASE_URL =
   process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, '') || 'http://localhost:5000';
 
+// Namespaced key avoids clashing with other apps on the same origin.
 const TOKEN_KEY = 'trao_token';
 
 export function getToken(): string | null {

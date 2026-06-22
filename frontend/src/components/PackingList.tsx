@@ -2,6 +2,8 @@
 
 import type { PackingItem } from '@/types';
 
+// Creative feature UI: groups AI-generated items by category and shows the
+// "reason" behind each suggestion. Toggling an item persists via the parent.
 interface Props {
   items: PackingItem[];
   onToggle: (index: number) => void;

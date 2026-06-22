@@ -1,3 +1,5 @@
+// Shared type contract between the UI and the API. These mirror the backend
+// Mongoose schemas so request/response payloads stay type-checked end to end.
 export type BudgetTier = 'Low' | 'Medium' | 'High';
 export type TimeOfDay = 'Morning' | 'Afternoon' | 'Evening';
 export type PackingCategory = 'Documents' | 'Clothing' | 'Gear' | 'Other';

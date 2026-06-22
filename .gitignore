@@ -8,3 +8,5 @@ dist/
 *.log
 .DS_Store
 coverage/
+# Office temp lock files (e.g. when viewing docs in Word)
+~$*

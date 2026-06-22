@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { authApi, clearToken, getToken, setToken } from '@/utils/api';
 import type { User } from '@/types';
 
+// Single source of truth for auth state across the app. On mount it restores the
+// session from a stored token (via /me) so a page refresh keeps the user signed in.
 interface AuthContextValue {
   user: User | null;
   loading: boolean;
